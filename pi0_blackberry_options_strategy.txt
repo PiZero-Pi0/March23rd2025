@@ -1,0 +1,92 @@
+# Pi0 Options Strategy for BlackBerry Canada Ltd
+=====================================================================
+
+## Overview
+This document applies the Pi0-derived options strategy at a $100 investment threshold specifically for BlackBerry Canada Ltd. The strategy is tailored to the moderate risk profile, integrating both long-term and short-term considerations under this investment level.
+
+## Investment Threshold: $100 (Moderate Risk)
+
+Under the $100 investment scenario, the risk weighting factor is defined as:
+
+$$ \omega = \log_{10}(100) - 1 = 1 $$
+
+The strategy balances premium generation and risk mitigation by employing a combination of moderately out-of-the-money (OTM) options and near-the-money (NTM) options, along with protective measures.
+
+## Strategy Components
+
+1. **Calls & Puts Positions**
+   - **Long Calls (OTM):** Buy moderately OTM call options on BlackBerry Canada Ltd to capture upside potential.
+   - **Protective Puts:** Buy OTM put options to hedge against sharp declines in the underlying stock price.
+   - **Short Options (if applicable):** Sell near-the-money call options to generate additional premium income, while ensuring delta neutrality.
+
+2. **Delta Hedging**
+   - The overall portfolio delta is maintained at approximately zero:
+
+   $$ \Delta_{portfolio} = N_{calls} 	imes \Delta_{call} + N_{puts} 	imes \Delta_{put} + \Delta_{cash} pprox 0 \]
+
+   This ensures that modest changes in the underlying stock price do not cause significant portfolio value fluctuations.
+
+3. **Risk-Adjusted Position Sizing**
+   - The positions are sized based on volatility (\(\sigma\)) and the beta of BlackBerry Canada Ltd. The weight \( w \) is given by:
+
+   $$ w = rac{eta}{\sigma 	imes (\omega+1)} \]
+
+   For \(\omega = 1\), this provides a moderate exposure appropriate for a $100 investment.
+
+4. **Rolling Strategy**
+   - Positions are rolled forward based on time decay (theta) and volatility shifts, ensuring an optimal balance between option premium generation and risk.
+   - Cash reserves are held to facilitate timely adjustments and maintain the rolling structure of the strategy.
+
+## Mathematical Formulation for BlackBerry Canada Ltd
+
+Let:
+- \( C_{buy} \) be the number of bought call options at a premium \( P_{C_b} \).
+- \( P_{buy} \) be the protective put options at a premium \( P_{P} \).
+- \( C_{sell} \) be the number of sold near-the-money call options at premium \( P_{C_s} \).
+
+The cost structure is expressed as:
+
+$$ Cost_{100} = C_{buy} 	imes P_{C_b} - C_{sell} 	imes P_{C_s} + P_{buy} 	imes P_{P} + Cash_{100} \]
+
+Subject to the maximum investment of $100.
+
+The hedging condition is:
+
+$$ \Delta_{portfolio} = C_{buy} 	imes \Delta_{C_b} - C_{sell} 	imes \Delta_{C_s} + P_{buy} 	imes \Delta_{P} pprox 0 \]
+
+The risk-adjusted position weight using BlackBerry's volatility \((\sigma_{BBY})\) and beta \((eta_{BBY})\) is given by:
+
+$$ w_{BBY} = rac{eta_{BBY}}{\sigma_{BBY} 	imes 2} \]
+
+(for \(\omega+1 = 2\)).
+
+## Example Strategy Implementation
+
+### Hypothetical Data (for illustration):
+- Current stock price for BlackBerry Canada Ltd: $7.50
+- Implied volatility (\(\sigma_{BBY}\)): 40% annualized
+- Beta (\(eta_{BBY}\)): 1.2
+- Premium for moderately OTM call (strike $8.50): $0.50
+- Premium for protective put (strike $7.00): $0.45
+- Premium received for near-the-money call (strike $7.70): $0.30
+
+### Suggested Positions:
+- **Long Calls:** Buy 1 call option at $0.50 premium.
+- **Protective Puts:** Buy 1 put option at $0.45 premium.
+- **Short Calls:** Sell 0.5 call option (or adjust quantity, typically integer approximations required) at $0.30 premium to hedge delta.
+- Remaining funds held in cash for rolling positions.
+
+The resulting net cost approximately equals:
+
+$$ Cost_{100} pprox 1 	imes 0.50 - 0.5 	imes 0.30 + 1 	imes 0.45 + Cash_{100} \]
+
+Adjust the numbers accordingly to not exceed the $100 investment cap while satisfying the delta hedge condition.
+
+## Conclusion
+
+This document applies the Pi0 options strategy at the $100 investment level for BlackBerry Canada Ltd, focusing on a moderate risk approach with balanced protection and premium income. The strategy utilizes a mix of call and put options with delta hedging mechanisms and risk-weighted position sizing to manage the exposure effectively.
+
+This model can be dynamically adjusted and rolled based on market conditions and time decay, ensuring an adaptive and robust approach.
+
+---
+End of Document
